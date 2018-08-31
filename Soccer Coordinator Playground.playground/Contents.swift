@@ -45,56 +45,56 @@ import UIKit
 
 
 
-//--------------------------------------- TYPE:1 --------------------------------------
-//a single collection named 'players' that contains all information for all 18 players. Each player must themselves be represented by a Dictionary with String keys and the corresponding values.
-//Also giving it a explicit type declaration
-
-var players  = [
-"Joe Smith": [ "Height": 42, "Soccer Experience": "YES", "Guradian Name": "Jim and Jan Smith" ],
-"Jill Tanner": [ "Height": 36, "Soccer Experience": "YES", "Guradian Name": "Clara Tanner" ],
-"Bill Bon":[ "Height": 43, "Soccer Experience": "YES", "Guradian Name": "Sara and Jenny Bon"],
-"Eva Gordon":[ "Height": 45, "Soccer Experience": "NO", "Guradian Name": "Wendy and Mike Gordon" ],
-"Matt Gill": ["Height": 40, "Soccer Experience": "NO", "Guradian Name": "Charles and Sylvia Gill"],
-"Kimmy Stein": ["Height": 41, "Soccer Experience": "NO", "Guradian Name": "Bill and Hillary Stein"] ,
-"Sammy Adams":[ "Height": 45, "Soccer Experience": "NO", "Guradian Name": "Jeff Adams" ],
-"Karl Saygan": [ "Height": 42, "Soccer Experience": "YES", "Guradian Name": "Heather Bledsoe"] ,
-"Suzane Greenberg": [ "Height": 44, "Soccer Experience": "YES", "Guradian Name": "Henrietta Dumas"] ,
-"Sal Dali": [ "Height": 41, "Soccer Experience": "NO", "Guradian Name": "Gala Dali" ],
-"Joe Kavalier":[ "Height": 39, "Soccer Experience": "NO", "Guradian Name": "Sam and Elaine Kavalier" ],
-"Ben Finkelstein":[ "Height": 44, "Soccer Experience": "NO", "Guradian Name": "Aaron and Jill Finkelstein" ],
-"Diego Soto":[ "Height": 41, "Soccer Experience": "YES", "Guradian Name": "Robin and Sarika Soto" ],
-"Chloe Alaska":[ "Height": 47, "Soccer Experience": "NO", "Guradian Name": "David and Jamie Alaska"] ,
-"Arnold Willis":["Height": 43, "Soccer Experience": "NO", "Guradian Name": "Claire Willis" ],
-"Phillip Helm":[ "Height": 44, "Soccer Experience": "YES", "Guradian Name": "Thomas Helm and Eva Jones"] ,
-"Les Clay":[ "Height": 42, "Soccer Experience": "YES", "Guradian Name": "Wynonna Brown" ],
-"Herschel Krustofski":[ "Height": 45, "Soccer Experience": "YES", "Guradian Name": "Hyman and Rachel Krustofski"]
- ]
-////Trying to have some fun with the Dictionary
+////--------------------------------------- TYPE:1 --------------------------------------
+////a single collection named 'players' that contains all information for all 18 players. Each player must themselves be represented by a Dictionary with String keys and the corresponding values.
+////Also giving it a explicit type declaration
 //
-///*var namearray = [String]()
-////for (key,value) in players {
-////    namearray = [key]
-////    print("unsorted - \(namearray)")
-////}
-//////namearray.sorted()
+//var players  = [
+//"Joe Smith": [ "Height": 42, "Soccer Experience": true, "Guradian Name": "Jim and Jan Smith" ],
+//"Jill Tanner": [ "Height": 36, "Soccer Experience": true, "Guradian Name": "Clara Tanner" ],
+//"Bill Bon":[ "Height": 43, "Soccer Experience": true, "Guradian Name": "Sara and Jenny Bon"],
+//"Eva Gordon":[ "Height": 45, "Soccer Experience": false, "Guradian Name": "Wendy and Mike Gordon" ],
+//"Matt Gill": ["Height": 40, "Soccer Experience": false, "Guradian Name": "Charles and Sylvia Gill"],
+//"Kimmy Stein": ["Height": 41, "Soccer Experience": false, "Guradian Name": "Bill and Hillary Stein"] ,
+//"Sammy Adams":[ "Height": 45, "Soccer Experience": false, "Guradian Name": "Jeff Adams" ],
+//"Karl Saygan": [ "Height": 42, "Soccer Experience": true, "Guradian Name": "Heather Bledsoe"] ,
+//"Suzane Greenberg": [ "Height": 44, "Soccer Experience": true, "Guradian Name": "Henrietta Dumas"] ,
+//"Sal Dali": [ "Height": 41, "Soccer Experience": false, "Guradian Name": "Gala Dali" ],
+//"Joe Kavalier":[ "Height": 39, "Soccer Experience": false, "Guradian Name": "Sam and Elaine Kavalier" ],
+//"Ben Finkelstein":[ "Height": 44, "Soccer Experience": false, "Guradian Name": "Aaron and Jill Finkelstein" ],
+//"Diego Soto":[ "Height": 41, "Soccer Experience": true, "Guradian Name": "Robin and Sarika Soto" ],
+//"Chloe Alaska":[ "Height": 47, "Soccer Experience": false, "Guradian Name": "David and Jamie Alaska"] ,
+//"Arnold Willis":["Height": 43, "Soccer Experience": false, "Guradian Name": "Claire Willis" ],
+//"Phillip Helm":[ "Height": 44, "Soccer Experience": true, "Guradian Name": "Thomas Helm and Eva Jones"] ,
+//"Les Clay":[ "Height": 42, "Soccer Experience": true, "Guradian Name": "Wynonna Brown" ],
+//"Herschel Krustofski":[ "Height": 45, "Soccer Experience": true, "Guradian Name": "Hyman and Rachel Krustofski"]
+// ]
+//////Trying to have some fun with the Dictionary
 ////
-////for namearray in players{
-////print("Sorted - \(namearray.key)")
-////}
-//*/
+/////*var namearray = [String]()
+//////for (key,value) in players {
+//////    namearray = [key]
+//////    print("unsorted - \(namearray)")
+//////}
+////////namearray.sorted()
+//////
+//////for namearray in players{
+//////print("Sorted - \(namearray.key)")
+//////}
+////*/
+////
+//let teamSharks: [String:[String:Any]]
+//let teamDragons: [String:[String:Any]]
+//let teamRaptors: [String:[String:Any]]
 //
-let teamSharks: [String:[String:Any]]
-let teamDragons: [String:[String:Any]]
-let teamRaptors: [String:[String:Any]]
-
-//to get the total of all the hieghts
-var total: Double = 0.0
-
-for i in players.values{
-    
-print (i["Height"] ?? " ")
-
-}
+////to get the total of all the hieghts
+//var total: Double = 0.0
+//
+//for i in players.values{
+//
+//print (i["Height"] ?? " ")
+//
+//}
 
 //--------------------------------------- TYPE:2 --------------------------------------
 //creating key variables for array dictionary
@@ -104,27 +104,62 @@ let playerHeightKey = "height"
 let playerParentKey = "parent"
 let playerExperienceKey = "experience?"
 
-//creating array of dictionary for players data
-var players2 = [
-    [playerNameKey: "Joe Smith", playerHeightKey: 42.0, playerExperienceKey: "YES", playerParentKey: "Jim and Jan Smith"],
-    [playerNameKey: "Jill Tanner", playerHeightKey: 36.0, playerExperienceKey: "YES", playerParentKey: "Clara Tanner"],
-    [playerNameKey: "Bill Bon", playerHeightKey: 43.0, playerExperienceKey: "YES", playerParentKey: "Sara and Jenny Bon"],
-    [playerNameKey: "Eva Gordon", playerHeightKey: 45.0, playerExperienceKey: "NO", playerParentKey: "Wendy and Mike Gordon"],
-    [playerNameKey: "Matt Gill", playerHeightKey: 40.0, playerExperienceKey: "NO", playerParentKey: "Charles and Sylvia Gill"],
-    [playerNameKey: "Kimmy Stein", playerHeightKey: 41.0, playerExperienceKey: "NO", playerParentKey: "Bill and Hillary Stein"],
-    [playerNameKey: "Sammy Adams", playerHeightKey: 45.0, playerExperienceKey: "NO", playerParentKey: "Jeff Adams"],
-    [playerNameKey: "Karl Saygan", playerHeightKey: 42.0, playerExperienceKey: "YES", playerParentKey: "Heather Bledsoe"],
-    [playerNameKey: "Suzane Greenberg", playerHeightKey: 44.0, playerExperienceKey: "YES", playerParentKey: "Henrietta Dumas"],
-    [playerNameKey: "Sal Dali", playerHeightKey: 41.0, playerExperienceKey: "NO", playerParentKey: "Gala Dali"],
-    [playerNameKey: "Joe Kavalier", playerHeightKey: 39.0, playerExperienceKey: "NO", playerParentKey: "Sam and Elaine Kavalier"],
-    [playerNameKey: "Ben Finkelstein", playerHeightKey: 44.0, playerExperienceKey: "NO", playerParentKey: "Aaron and Jill Finkelstein"],
-    [playerNameKey: "Diego Soto", playerHeightKey: 41.0, playerExperienceKey: "YES", playerParentKey: "Robin and Sarika Soto"],
-    [playerNameKey: "Chloe Alaska", playerHeightKey: 47.0, playerExperienceKey: "NO", playerParentKey: "David and Jamie Alaska"],
-    [playerNameKey: "Arnold Willis", playerHeightKey: 43.0, playerExperienceKey: "NO", playerParentKey: "Claire Willis"],
-    [playerNameKey: "Phillip Helm", playerHeightKey: 44.0, playerExperienceKey: "YES", playerParentKey: "Thomas Helm and Eva Jones"],
-    [playerNameKey: "Les Clay", playerHeightKey: 42.0, playerExperienceKey: "YES", playerParentKey: "Wynonna Brown"],
-    [playerNameKey: "Herschel Krustofski", playerHeightKey: 45.0, playerExperienceKey: "YES", playerParentKey: "Hyman and Rachel Krustofski"],
-]
+//Creating Dictonary for each player and player detail.
+let players1:[String: Any] =
+    [playerNameKey: "Joe Smith", playerHeightKey: 42.0, playerExperienceKey: true, playerParentKey: "Jim and Jan Smith"]
+let players2:[String: Any] =    [playerNameKey: "Jill Tanner", playerHeightKey: 36.0, playerExperienceKey: true, playerParentKey: "Clara Tanner"]
+let players3:[String: Any] =    [playerNameKey: "Bill Bon", playerHeightKey: 43.0, playerExperienceKey: true, playerParentKey: "Sara and Jenny Bon"]
+let players4:[String: Any] =    [playerNameKey: "Eva Gordon", playerHeightKey: 45.0, playerExperienceKey: false, playerParentKey: "Wendy and Mike Gordon"]
+let players5:[String: Any] =    [playerNameKey: "Matt Gill", playerHeightKey: 40.0, playerExperienceKey: false, playerParentKey: "Charles and Sylvia Gill"]
+let players6:[String: Any] =    [playerNameKey: "Kimmy Stein", playerHeightKey: 41.0, playerExperienceKey: false, playerParentKey: "Bill and Hillary Stein"]
+let players7:[String: Any] =    [playerNameKey: "Sammy Adams", playerHeightKey: 45.0, playerExperienceKey: false, playerParentKey: "Jeff Adams"]
+let players8:[String: Any] =    [playerNameKey: "Karl Saygan", playerHeightKey: 42.0, playerExperienceKey: true, playerParentKey: "Heather Bledsoe"]
+let players9:[String: Any] =    [playerNameKey: "Suzane Greenberg", playerHeightKey: 44.0, playerExperienceKey: true, playerParentKey: "Henrietta Dumas"]
+let players10:[String: Any] =   [playerNameKey: "Sal Dali", playerHeightKey: 41.0, playerExperienceKey: false, playerParentKey: "Gala Dali"]
+let players11:[String: Any] =   [playerNameKey: "Joe Kavalier", playerHeightKey: 39.0, playerExperienceKey: false, playerParentKey: "Sam and Elaine Kavalier"]
+let players12:[String: Any] =   [playerNameKey: "Ben Finkelstein", playerHeightKey: 44.0, playerExperienceKey: false, playerParentKey: "Aaron and Jill Finkelstein"]
+let players13:[String: Any] =   [playerNameKey: "Diego Soto", playerHeightKey: 41.0, playerExperienceKey: true, playerParentKey: "Robin and Sarika Soto"]
+let players14:[String: Any] =   [playerNameKey: "Chloe Alaska", playerHeightKey: 47.0, playerExperienceKey: false, playerParentKey: "David and Jamie Alaska"]
+let players15:[String: Any] =   [playerNameKey: "Arnold Willis", playerHeightKey: 43.0, playerExperienceKey: false, playerParentKey: "Claire Willis"]
+let players16:[String: Any] =   [playerNameKey: "Phillip Helm", playerHeightKey: 44.0, playerExperienceKey: true, playerParentKey: "Thomas Helm and Eva Jones"]
+let players17:[String: Any] =   [playerNameKey: "Les Clay", playerHeightKey: 42.0, playerExperienceKey: true, playerParentKey: "Wynonna Brown"]
+let players18:[String: Any] =   [playerNameKey: "Herschel Krustofski", playerHeightKey: 45.0, playerExperienceKey: true, playerParentKey: "Hyman and Rachel Krustofski"]
+
+//Declaring the array to store the dictonaries
+var players = [[String:Any]]()
+//Storing Dictionaries in the Array
+players = [players1,players2,players3,players4,players5,players6,players7,players8,players9,players10,
+                players11,players12,players13,players14,players15,players16,players17,players18]
+
+
+
+//-------please Ignore : Testing with a small value to see how it works-----------
+//var value1 = players[0][playerHeightKey]
+//value1 = value1 as! Double + 2
+//print (value1)
+
+//Declaring Counter and height variables
+var counter = 0; var heightTotal = 0.0
+
+//Condition to create total height variable
+while (counter < players.count){
+let newHeight = players[counter][playerHeightKey] as?  Double
+print("The newHeight Value is \(newHeight ?? 0.0)")
+heightTotal += newHeight!
+print("New value for heightTotal -- is \(heightTotal)")
+counter += 1
+}
+//Print total height
+print("the total height is \(heightTotal)")
+
+//sorting the players array with playerExperience key
+let resultArray = players.sort { (x, y) -> Bool in
+    return x[playerExperienceKey] as! Bool
+}
+
+print(resultArray)
+
+
 
 
 
