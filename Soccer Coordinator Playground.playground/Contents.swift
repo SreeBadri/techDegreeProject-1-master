@@ -104,26 +104,32 @@ let playerHeightKey = "height"
 let playerParentKey = "parent"
 let playerExperienceKey = "experience?"
 
+let experiencedPlayer = true
+let notExperiencedPlayer = false
+
+
+
+
 //Creating Dictonary for each player and player detail.
 let players1:[String: Any] =
-    [playerNameKey: "Joe Smith", playerHeightKey: 42.0, playerExperienceKey: true, playerParentKey: "Jim and Jan Smith"]
-let players2:[String: Any] =    [playerNameKey: "Jill Tanner", playerHeightKey: 36.0, playerExperienceKey: true, playerParentKey: "Clara Tanner"]
-let players3:[String: Any] =    [playerNameKey: "Bill Bon", playerHeightKey: 43.0, playerExperienceKey: true, playerParentKey: "Sara and Jenny Bon"]
-let players4:[String: Any] =    [playerNameKey: "Eva Gordon", playerHeightKey: 45.0, playerExperienceKey: false, playerParentKey: "Wendy and Mike Gordon"]
-let players5:[String: Any] =    [playerNameKey: "Matt Gill", playerHeightKey: 40.0, playerExperienceKey: false, playerParentKey: "Charles and Sylvia Gill"]
-let players6:[String: Any] =    [playerNameKey: "Kimmy Stein", playerHeightKey: 41.0, playerExperienceKey: false, playerParentKey: "Bill and Hillary Stein"]
-let players7:[String: Any] =    [playerNameKey: "Sammy Adams", playerHeightKey: 45.0, playerExperienceKey: false, playerParentKey: "Jeff Adams"]
-let players8:[String: Any] =    [playerNameKey: "Karl Saygan", playerHeightKey: 42.0, playerExperienceKey: true, playerParentKey: "Heather Bledsoe"]
-let players9:[String: Any] =    [playerNameKey: "Suzane Greenberg", playerHeightKey: 44.0, playerExperienceKey: true, playerParentKey: "Henrietta Dumas"]
-let players10:[String: Any] =   [playerNameKey: "Sal Dali", playerHeightKey: 41.0, playerExperienceKey: false, playerParentKey: "Gala Dali"]
-let players11:[String: Any] =   [playerNameKey: "Joe Kavalier", playerHeightKey: 39.0, playerExperienceKey: false, playerParentKey: "Sam and Elaine Kavalier"]
-let players12:[String: Any] =   [playerNameKey: "Ben Finkelstein", playerHeightKey: 44.0, playerExperienceKey: false, playerParentKey: "Aaron and Jill Finkelstein"]
-let players13:[String: Any] =   [playerNameKey: "Diego Soto", playerHeightKey: 41.0, playerExperienceKey: true, playerParentKey: "Robin and Sarika Soto"]
-let players14:[String: Any] =   [playerNameKey: "Chloe Alaska", playerHeightKey: 47.0, playerExperienceKey: false, playerParentKey: "David and Jamie Alaska"]
-let players15:[String: Any] =   [playerNameKey: "Arnold Willis", playerHeightKey: 43.0, playerExperienceKey: false, playerParentKey: "Claire Willis"]
-let players16:[String: Any] =   [playerNameKey: "Phillip Helm", playerHeightKey: 44.0, playerExperienceKey: true, playerParentKey: "Thomas Helm and Eva Jones"]
-let players17:[String: Any] =   [playerNameKey: "Les Clay", playerHeightKey: 42.0, playerExperienceKey: true, playerParentKey: "Wynonna Brown"]
-let players18:[String: Any] =   [playerNameKey: "Herschel Krustofski", playerHeightKey: 45.0, playerExperienceKey: true, playerParentKey: "Hyman and Rachel Krustofski"]
+    [playerNameKey: "Joe Smith", playerHeightKey: 42.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Jim and Jan Smith"]
+let players2:[String: Any] =    [playerNameKey: "Jill Tanner", playerHeightKey: 36.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Clara Tanner"]
+let players3:[String: Any] =    [playerNameKey: "Bill Bon", playerHeightKey: 43.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Sara and Jenny Bon"]
+let players4:[String: Any] =    [playerNameKey: "Eva Gordon", playerHeightKey: 45.0, playerExperienceKey: notExperiencedPlayer, playerParentKey: "Wendy and Mike Gordon"]
+let players5:[String: Any] =    [playerNameKey: "Matt Gill", playerHeightKey: 40.0, playerExperienceKey: notExperiencedPlayer, playerParentKey: "Charles and Sylvia Gill"]
+let players6:[String: Any] =    [playerNameKey: "Kimmy Stein", playerHeightKey: 41.0, playerExperienceKey: notExperiencedPlayer, playerParentKey: "Bill and Hillary Stein"]
+let players7:[String: Any] =    [playerNameKey: "Sammy Adams", playerHeightKey: 45.0, playerExperienceKey: notExperiencedPlayer, playerParentKey: "Jeff Adams"]
+let players8:[String: Any] =    [playerNameKey: "Karl Saygan", playerHeightKey: 42.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Heather Bledsoe"]
+let players9:[String: Any] =    [playerNameKey: "Suzane Greenberg", playerHeightKey: 44.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Henrietta Dumas"]
+let players10:[String: Any] =   [playerNameKey: "Sal Dali", playerHeightKey: 41.0, playerExperienceKey: notExperiencedPlayer, playerParentKey: "Gala Dali"]
+let players11:[String: Any] =   [playerNameKey: "Joe Kavalier", playerHeightKey: 39.0, playerExperienceKey: notExperiencedPlayer, playerParentKey: "Sam and Elaine Kavalier"]
+let players12:[String: Any] =   [playerNameKey: "Ben Finkelstein", playerHeightKey: 44.0, playerExperienceKey: notExperiencedPlayer, playerParentKey: "Aaron and Jill Finkelstein"]
+let players13:[String: Any] =   [playerNameKey: "Diego Soto", playerHeightKey: 41.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Robin and Sarika Soto"]
+let players14:[String: Any] =   [playerNameKey: "Chloe Alaska", playerHeightKey: 47.0, playerExperienceKey: notExperiencedPlayer, playerParentKey: "David and Jamie Alaska"]
+let players15:[String: Any] =   [playerNameKey: "Arnold Willis", playerHeightKey: 43.0, playerExperienceKey: notExperiencedPlayer, playerParentKey: "Claire Willis"]
+let players16:[String: Any] =   [playerNameKey: "Phillip Helm", playerHeightKey: 44.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Thomas Helm and Eva Jones"]
+let players17:[String: Any] =   [playerNameKey: "Les Clay", playerHeightKey: 42.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Wynonna Brown"]
+let players18:[String: Any] =   [playerNameKey: "Herschel Krustofski", playerHeightKey: 45.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Hyman and Rachel Krustofski"]
 
 //Declaring the array to store the dictonaries
 var players = [[String:Any]]()
@@ -142,22 +148,41 @@ players = [players1,players2,players3,players4,players5,players6,players7,player
 var counter = 0; var heightTotal = 0.0
 
 //Condition to create total height variable
-while (counter < players.count){
-let newHeight = players[counter][playerHeightKey] as?  Double
-print("The newHeight Value is \(newHeight ?? 0.0)")
-heightTotal += newHeight!
-print("New value for heightTotal -- is \(heightTotal)")
-counter += 1
-}
-//Print total height
-print("the total height is \(heightTotal)")
+//while (counter < players.count){
+//let newHeight = players[counter][playerHeightKey] as?  Double
+//print("The newHeight Value is \(newHeight ?? 0.0)")
+//heightTotal += newHeight!
+//print("New value for heightTotal -- is \(heightTotal)")
+//counter += 1
+//}
+////Print total height
+//print("the total height is \(heightTotal)")
 
-//sorting the players array with playerExperience key
-let resultArray = players.sort { (x, y) -> Bool in
-    return x[playerExperienceKey] as! Bool
+//declaring arrays to store experienced and non experienced players
+
+var experiencedPlayerStore: [String] = []
+var nonExperiencedPlayerStore: [String] = []
+
+
+// Sorting the Players Array Dictionary for Experienced and non experienced players
+
+for player in players {
+    if player[playerExperienceKey] as? Bool == experiencedPlayer {
+        //Assign the experienced player values to the array; to test if "if" is hit --> print("\(player[playerNameKey] ?? "") --> is an Experienced Player")
+        experiencedPlayerStore.append(player[playerNameKey] as! String)
+        
+    }
+    else  {
+        //Assign the non experienced player values to the array; to test if else is hit --> print("This guy is not experienced --> \(player[playerNameKey] ?? "")")
+        nonExperiencedPlayerStore.append(player[playerNameKey] as! String)
+
+    }
+
 }
 
-print(resultArray)
+
+print("\(experiencedPlayerStore) are Experienced Player")
+print("\(nonExperiencedPlayerStore) are not an Experienced Player")
 
 
 
