@@ -160,29 +160,35 @@ var counter = 0; var heightTotal = 0.0
 
 //declaring arrays to store experienced and non experienced players
 
-var experiencedPlayerStore: [String] = []
-var nonExperiencedPlayerStore: [String] = []
+var experiencedPlayerStore: [[String: Any]] = []
+var nonExperiencedPlayerStore: [[String: Any]] = []
 
 
 // Sorting the Players Array Dictionary for Experienced and non experienced players
 
+func playerDistribute () {
 for player in players {
     if player[playerExperienceKey] as? Bool == experiencedPlayer {
         //Assign the experienced player values to the array; to test if "if" is hit --> print("\(player[playerNameKey] ?? "") --> is an Experienced Player")
-        experiencedPlayerStore.append(player[playerNameKey] as! String)
+        experiencedPlayerStore.append(player)
         
     }
     else  {
         //Assign the non experienced player values to the array; to test if else is hit --> print("This guy is not experienced --> \(player[playerNameKey] ?? "")")
-        nonExperiencedPlayerStore.append(player[playerNameKey] as! String)
+        nonExperiencedPlayerStore.append(player)
 
     }
 
 }
 
+    print("\(experiencedPlayerStore) are Experienced Player \n")
+    print("\(nonExperiencedPlayerStore) are not Experienced Player")
+}
 
-print("\(experiencedPlayerStore) are Experienced Player")
-print("\(nonExperiencedPlayerStore) are not an Experienced Player")
+playerDistribute()
+
+
+
 
 
 
