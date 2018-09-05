@@ -133,33 +133,35 @@ let players18:[String: Any] =   [playerNameKey: "Herschel Krustofski", playerHei
 
 //Declaring the array to store the dictonaries
 var players = [[String:Any]]()
+
 //Storing Dictionaries in the Array
 players = [players1,players2,players3,players4,players5,players6,players7,players8,players9,players10,
                 players11,players12,players13,players14,players15,players16,players17,players18]
 
 
 
-//-------please Ignore : Testing with a small value to see how it works-----------
-//var value1 = players[0][playerHeightKey]
-//value1 = value1 as! Double + 2
-//print (value1)
+                    /*-------please Ignore : Testing with a small value to see how it works-----------
+                    //var value1 = players[0][playerHeightKey]
+                    //value1 = value1 as! Double + 2
+                    print (value1)
+                    */
 
 //Declaring Counter and height variables
-var counter = 0; var heightTotal = 0.0
 
-//Condition to create total height variable
-//while (counter < players.count){
-//let newHeight = players[counter][playerHeightKey] as?  Double
-//print("The newHeight Value is \(newHeight ?? 0.0)")
-//heightTotal += newHeight!
-//print("New value for heightTotal -- is \(heightTotal)")
-//counter += 1
-//}
-////Print total height
-//print("the total height is \(heightTotal)")
+
+                    /*var counter = 0; var heightTotal = 0.0
+                    //while (counter < players.count){
+                    //let newHeight = players[counter][playerHeightKey] as?  Double
+                    //print("The newHeight Value is \(newHeight ?? 0.0)")
+                    //heightTotal += newHeight!
+                    //print("New value for heightTotal -- is \(heightTotal)")
+                    //counter += 1
+                    //}
+                    ////Print total height
+                    print("the total height is \(heightTotal)")
+                    */
 
 //declaring arrays to store experienced and non experienced players
-
 var experiencedPlayerStore: [[String: Any]] = []
 var nonExperiencedPlayerStore: [[String: Any]] = []
 
@@ -168,7 +170,8 @@ var nonExperiencedPlayerStore: [[String: Any]] = []
 
 func playerDistribute () {
 for player in players {
-    if player[playerExperienceKey] as? Bool == experiencedPlayer {
+    if (player[playerExperienceKey] as? Bool == experiencedPlayer)
+    {
         //Assign the experienced player values to the array; to test if "if" is hit --> print("\(player[playerNameKey] ?? "") --> is an Experienced Player")
         experiencedPlayerStore.append(player)
         
@@ -177,21 +180,169 @@ for player in players {
         //Assign the non experienced player values to the array; to test if else is hit --> print("This guy is not experienced --> \(player[playerNameKey] ?? "")")
         nonExperiencedPlayerStore.append(player)
 
+        }
+
+}
+
+                /*print("\(experiencedPlayerStore) are Experienced Player \n")
+                print("\(nonExperiencedPlayerStore) are not Experienced Player")
+                */
+ }
+
+playerDistribute() //------------------->>>>>> Function to call
+
+//sorting experienced players with height
+
+                /*
+                for sort in experiencedPlayerStore{
+                print (sort[playerHeightKey] ?? "")
+
+                }
+                print("\n")
+                print(experiencedPlayerStore[0])
+                //print(experiencedPlayerStore[0][playerHeightKey] as! Double)
+                //
+                //print(experiencedPlayerStore[1])
+                //print(experiencedPlayerStore[1][playerHeightKey] as! Double)
+
+                print(experiencedPlayerStore.count)
+                */
+
+func sortExperiencedPlayer () {
+var i = 0;
+while (i < experiencedPlayerStore.count)
+{ //print("Value of I is \(i) \n")
+    var j = 0
+    while ( j < (experiencedPlayerStore.count - 1))
+    {
+        if ( (experiencedPlayerStore[j][playerHeightKey] as! Double)  > (experiencedPlayerStore[j+1][playerHeightKey] as! Double))
+        {
+            let holdingValue = experiencedPlayerStore[j]
+            experiencedPlayerStore[j] = experiencedPlayerStore [j+1]
+ 
+            experiencedPlayerStore[j+1] = holdingValue
+        
+        }
+//print("Value of J is \(j)")
+        j += 1
     }
 
+i += 1
 }
 
-    print("\(experiencedPlayerStore) are Experienced Player \n")
-    print("\(nonExperiencedPlayerStore) are not Experienced Player")
+     print("Sorted Experienced Player List: \n")
+    for sort in experiencedPlayerStore
+    {
+        print("Name: \(sort[playerNameKey] ?? "") ; Height:\(sort[playerHeightKey] ?? "") ")
+    
+    }
+    
+    
+
 }
 
-playerDistribute()
+sortExperiencedPlayer() //------------------->>>>>> Function to call
+
+                /*
+
+                print(experiencedPlayerStore)
+                print(experiencedPlayerStore[0])
+                print(experiencedPlayerStore[0][playerHeightKey] as! Double)
+
+                print(experiencedPlayerStore[1])
+                print(experiencedPlayerStore[1][playerHeightKey] as! Double)
+                */
 
 
+func sortnonExperiencedPlayer () {
+    var i = 0;
+    while (i < nonExperiencedPlayerStore.count)
+    { //print("Value of I is \(i) \n")
+        var j = 0
+        while ( j < (nonExperiencedPlayerStore.count - 1))
+        {
+            if ( (nonExperiencedPlayerStore[j][playerHeightKey] as! Double)  > (nonExperiencedPlayerStore[j+1][playerHeightKey] as! Double))
+            {
+                let holdingValue = nonExperiencedPlayerStore[j]
+                nonExperiencedPlayerStore[j] = nonExperiencedPlayerStore [j+1]
+                
+                nonExperiencedPlayerStore[j+1] = holdingValue
+                
+            }
+            //print("Value of J is \(j)")
+            j += 1
+        }
+        
+        i += 1
+    }
+            print("\nSorted Non-Experienced Player List: \n")
+    for sort in nonExperiencedPlayerStore
+    {
+        print("Name: \(sort[playerNameKey] ?? "") ; Height:\(sort[playerHeightKey] ?? "") ")
+    }
+}
+
+sortnonExperiencedPlayer() //------------------->>>>>> Function to call
 
 
+//moving players in 3 different team
 
+//func movePlayer () {
 
+var teamSharks: [[String: Any]] = []
+var teamDragons: [[String: Any]] = []
+var teamRaptors: [[String: Any]] = []
+
+var counterForExperiencedPlayer = 0
+while (counterForExperiencedPlayer < experiencedPlayerStore.count)
+{
+    teamSharks.append(experiencedPlayerStore[counterForExperiencedPlayer])
+    teamDragons.append(experiencedPlayerStore[counterForExperiencedPlayer + 1])
+    teamRaptors.append(experiencedPlayerStore[counterForExperiencedPlayer + 2])
+        counterForExperiencedPlayer += 3
+}
+
+var counterForNonExperiencedPlayer = 0
+while (counterForNonExperiencedPlayer < experiencedPlayerStore.count)
+{
+        teamSharks.append(experiencedPlayerStore[counterForNonExperiencedPlayer])
+        teamDragons.append(experiencedPlayerStore[counterForNonExperiencedPlayer + 1])
+        teamRaptors.append(experiencedPlayerStore[counterForNonExperiencedPlayer + 2])
+        counterForNonExperiencedPlayer += 3
+}
+    
+
+    
+print("\nTeam Sharks are as below: \n ")
+var heightTotalSharks = 0.0; var counterSharks = 0
+for i in teamSharks
+{
+        print("\(i[playerNameKey] ?? "") : \(i[playerHeightKey] ?? "") ")
+    heightTotalSharks += (i[playerHeightKey]) as! Double
+    if (i[playerExperienceKey] as! Bool == experiencedPlayer)
+    {
+        counterSharks += 1
+    }
+    
+}
+    let averageHeightSharks = (heightTotalSharks ) / Double(teamSharks.count)
+    print("\nAverage height of Team Sharks is: \(averageHeightSharks)")
+    print("Total no. of players in team sharks is \(teamSharks.count)")
+    print("Total height of team sharks is \(heightTotalSharks)")
+print("Total number of Experienced Players in Team Sharks is: \(counterSharks)")
+//print("\nTeam Dragons are as below: \n ")
+//for i in teamDragons {
+//    print(i[playerNameKey] ?? "" )
+//}
+//
+//print("\nTeam Raptors are as below: \n ")
+//for i in teamRaptors {
+//    print(i[playerNameKey] ?? "" )
+//}
+
+//}
+
+//movePlayer() //------------------->>>>>> Function to call
 
 
 
