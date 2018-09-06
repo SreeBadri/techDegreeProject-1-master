@@ -303,11 +303,11 @@ while (counterForExperiencedPlayer < experiencedPlayerStore.count)
 }
 
 var counterForNonExperiencedPlayer = 0
-while (counterForNonExperiencedPlayer < experiencedPlayerStore.count)
+while (counterForNonExperiencedPlayer < nonExperiencedPlayerStore.count)
 {
-        teamSharks.append(experiencedPlayerStore[counterForNonExperiencedPlayer])
-        teamDragons.append(experiencedPlayerStore[counterForNonExperiencedPlayer + 1])
-        teamRaptors.append(experiencedPlayerStore[counterForNonExperiencedPlayer + 2])
+        teamSharks.append(nonExperiencedPlayerStore[counterForNonExperiencedPlayer])
+        teamDragons.append(nonExperiencedPlayerStore[counterForNonExperiencedPlayer + 1])
+        teamRaptors.append(nonExperiencedPlayerStore[counterForNonExperiencedPlayer + 2])
         counterForNonExperiencedPlayer += 3
 }
     
@@ -336,7 +336,7 @@ for i in teamSharks
 //print("Total number of Experienced Players in Team Sharks is: \(counterSharks)")
 }
 
-//teamSharkDetails() //------------------->>>>>> Function to call
+teamSharkDetails() //------------------->>>>>> Function to call
 
 func teamDragonsDetails (){
         print("\nTeam Dragons are as below: \n ")
@@ -348,7 +348,7 @@ func teamDragonsDetails (){
 }
 }
 
-//teamDragonsDetails() //------------------->>>>>> Function to call
+teamDragonsDetails() //------------------->>>>>> Function to call
 
 func teamRaptorsDetails (){
     print("\nTeam Raptors are as below: \n ")
@@ -360,7 +360,7 @@ func teamRaptorsDetails (){
     }
 }
 
-//teamRaptorsDetails() //------------------->>>>>> Function to call
+teamRaptorsDetails() //------------------->>>>>> Function to call
 
 
 
