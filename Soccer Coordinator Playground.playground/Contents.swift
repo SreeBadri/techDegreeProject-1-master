@@ -233,7 +233,7 @@ i += 1
      print("Sorted Experienced Player List: \n")
     for sort in experiencedPlayerStore
     {
-        print("Name: \(sort[playerNameKey] ?? "") ; Height:\(sort[playerHeightKey] ?? "") ")
+        print("Name: \(sort[playerNameKey] ?? "") ; Height:\(sort[playerHeightKey] ?? "") ; Experience:\(sort[playerExperienceKey] ?? "")  ")
     
     }
     
@@ -278,7 +278,7 @@ func sortnonExperiencedPlayer () {
             print("\nSorted Non-Experienced Player List: \n")
     for sort in nonExperiencedPlayerStore
     {
-        print("Name: \(sort[playerNameKey] ?? "") ; Height:\(sort[playerHeightKey] ?? "") ")
+        print("Name: \(sort[playerNameKey] ?? "") ; Height:\(sort[playerHeightKey] ?? "") ; Experience:\(sort[playerExperienceKey] ?? "") ")
     }
 }
 
@@ -312,24 +312,59 @@ while (counterForNonExperiencedPlayer < experiencedPlayerStore.count)
 }
     
 
-    
+func teamSharkDetails (){
 print("\nTeam Sharks are as below: \n ")
-var heightTotalSharks = 0.0; var counterSharks = 0
+var heightTotalSharks = 0.0; //var counterSharks = 0
 for i in teamSharks
 {
-        print("\(i[playerNameKey] ?? "") : \(i[playerHeightKey] ?? "") ")
+    print("\(i[playerNameKey] ?? "") : \(i[playerHeightKey] ?? "") : \(i[playerExperienceKey] ?? "")")
     heightTotalSharks += (i[playerHeightKey]) as! Double
-    if (i[playerExperienceKey] as! Bool == experiencedPlayer)
-    {
-        counterSharks += 1
-    }
-    
 }
-    let averageHeightSharks = (heightTotalSharks ) / Double(teamSharks.count)
-    print("\nAverage height of Team Sharks is: \(averageHeightSharks)")
-    print("Total no. of players in team sharks is \(teamSharks.count)")
-    print("Total height of team sharks is \(heightTotalSharks)")
-print("Total number of Experienced Players in Team Sharks is: \(counterSharks)")
+    
+//    print("This is the value of playerExperienceKey \(i[playerExperienceKey] as! Bool)")
+////    print("This is the experiencePlayer value: \(experiencedPlayer)")
+//    if (i[playerExperienceKey] as! Bool == experiencedPlayer)
+//    {
+//        counterSharks += 1
+//    }
+//
+//}
+//    let averageHeightSharks = (heightTotalSharks ) / Double(teamSharks.count)
+//    print("\nAverage height of Team Sharks is: \(averageHeightSharks)")
+//    print("Total no. of players in team sharks is \(teamSharks.count)")
+//    print("Total height of team sharks is \(heightTotalSharks)")
+//print("Total number of Experienced Players in Team Sharks is: \(counterSharks)")
+}
+
+//teamSharkDetails() //------------------->>>>>> Function to call
+
+func teamDragonsDetails (){
+        print("\nTeam Dragons are as below: \n ")
+        var heightTotalDragons = 0.0; //var counterSharks = 0
+        for i in teamDragons
+        {
+            print("\(i[playerNameKey] ?? "") : \(i[playerHeightKey] ?? "") : \(i[playerExperienceKey] ?? "")")
+            heightTotalDragons += (i[playerHeightKey]) as! Double
+}
+}
+
+//teamDragonsDetails() //------------------->>>>>> Function to call
+
+func teamRaptorsDetails (){
+    print("\nTeam Raptors are as below: \n ")
+    var heightTotalRaptors = 0.0; //var counterSharks = 0
+    for i in teamRaptors
+    {
+        print("\(i[playerNameKey] ?? "") : \(i[playerHeightKey] ?? "") : \(i[playerExperienceKey] ?? "")")
+        heightTotalRaptors += (i[playerHeightKey]) as! Double
+    }
+}
+
+//teamRaptorsDetails() //------------------->>>>>> Function to call
+
+
+
+
 //print("\nTeam Dragons are as below: \n ")
 //for i in teamDragons {
 //    print(i[playerNameKey] ?? "" )
