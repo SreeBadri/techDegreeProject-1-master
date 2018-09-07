@@ -83,18 +83,26 @@ let players15:[String: Any] =   [playerNameKey: "Arnold Willis", playerHeightKey
 let players16:[String: Any] =   [playerNameKey: "Phillip Helm", playerHeightKey: 44.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Thomas Helm and Eva Jones"]
 let players17:[String: Any] =   [playerNameKey: "Les Clay", playerHeightKey: 42.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Wynonna Brown"]
 let players18:[String: Any] =   [playerNameKey: "Herschel Krustofski", playerHeightKey: 45.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Hyman and Rachel Krustofski"]
+/*
+ let players19:[String: Any] =   [playerNameKey: "Herschel Krustofski", playerHeightKey: 45.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Hyman and Rachel Krustofski"]
+let players20:[String: Any] =   [playerNameKey: "Herschel Krustofski", playerHeightKey: 45.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Hyman and Rachel Krustofski"]
+let players21:[String: Any] =   [playerNameKey: "Herschel Krustofski", playerHeightKey: 45.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Hyman and Rachel Krustofski"]
+let players22:[String: Any] =   [playerNameKey: "Herschel Krustofski", playerHeightKey: 45.0, playerExperienceKey: experiencedPlayer, playerParentKey: "Hyman and Rachel Krustofski"]
+ */
 
 //Declaring the array to store the dictonaries
 var players = [[String:Any]]()
 
 //Assigning Dictionaries in the Array
-players = [players1,players2,players3,players4,players5,players6,players7,players8,players9,players10,
-                players11,players12,players13,players14,players15,players16,players17,players18]
+players = [players1,players2,players3,players4,players5,players6,players7,players8,players9,players10,players11,players12,players13,players14,players15,players16,players17,players18]//players19,players20,players20,players21]
+
 
 
 //declaring array of Dictionary to store experienced and non experienced players
 var experiencedPlayerStore: [[String: Any]] = []
 var nonExperiencedPlayerStore: [[String: Any]] = []
+var totalPlayerStore = [[String:Any]]()
+
 
 
 // Checking the Players Array Dictionary for Experienced and non experienced players and assigning to each array of Dictionary
@@ -115,7 +123,7 @@ for player in players
 }
 
 
-
+// Creating function to sort players in Experienced and non-experienced arrays with height to help them distributing evenly
 func sortPlayer (playerSortStore: inout [[String:Any]]) {
 var i = 0;
         while (i < playerSortStore.count)
@@ -142,11 +150,16 @@ var i = 0;
 sortPlayer(playerSortStore: &experiencedPlayerStore) //------------------->>>>>> Function to call
 sortPlayer(playerSortStore: &nonExperiencedPlayerStore) //------------------->>>>>> Function to call
 
+// Creating a new array which has the sorted list of Experienced and Non Experienced pLayers
+totalPlayerStore = experiencedPlayerStore + nonExperiencedPlayerStore
 
-//moving players in 3 different team
+//Distributing Sorted Players in 3 different team for Sharks, Dragons and Raptors
 func movePlayer (playerStore : [[String: Any]] ) {
 
 var counterForPlayer = 0
+    
+if ((playerStore.count % 3 ) == 0)
+{
 while (counterForPlayer < playerStore.count)
 {
     teamSharks.append(playerStore[counterForPlayer])
@@ -154,88 +167,107 @@ while (counterForPlayer < playerStore.count)
     teamRaptors.append(playerStore[counterForPlayer + 2])
         counterForPlayer += 3
 }
-    
-
+    print("Total no. of players in team Sharks :\(teamSharks.count)")
+    print("Total no. of players in team Dragons :\(teamDragons.count)")
+    print("Total no. of players in team Raptors :\(teamRaptors.count)")
 }
-movePlayer(playerStore: experiencedPlayerStore) //------------------->>>>>> Function to call
-movePlayer(playerStore: nonExperiencedPlayerStore) //------------------->>>>>> Function to call
-
-// appending team name and team detials to the team collection
-var i = 0
-while (i < teamSharks.count)
+else if ((playerStore.count % 3 ) == 1)
 {
-    teamSharks[i][playerTeam] = "Sharks"
-    teamSharks[i][playerGameDetail] = "March 17th at 1:00 PM"
-    teamDragons[i][playerTeam] = "Dragons"
-    teamDragons[i][playerGameDetail] = "March 17th at 3:00 PM"
-    teamRaptors[i][playerTeam] = "Raptors"
-    teamRaptors[i][playerGameDetail] = "March 18th at 1:00 PM"
+    while (counterForPlayer < playerStore.count-1)
+    {
+        teamSharks.append(playerStore[counterForPlayer])
+        teamDragons.append(playerStore[counterForPlayer + 1])
+        teamRaptors.append(playerStore[counterForPlayer + 2])
+        counterForPlayer += 3
+    }
+        teamSharks.append(playerStore[playerStore.count-1])
+    print("Total no. of players in team Sharks :\(teamSharks.count)")
+    print("Total no. of players in team Dragons :\(teamDragons.count)")
+    print("Total no. of players in team Raptors :\(teamRaptors.count)")
+    }
+
+else if ((playerStore.count % 3 ) == 2)
+{
+    while (counterForPlayer < playerStore.count-2)
+    {
+        teamSharks.append(playerStore[counterForPlayer])
+        teamDragons.append(playerStore[counterForPlayer + 1])
+        teamRaptors.append(playerStore[counterForPlayer + 2])
+        counterForPlayer += 3
+    }
+    teamSharks.append(playerStore[playerStore.count-2])
+    teamDragons.append(playerStore[(playerStore.count-1)])
+    print("Total no. of players in team Sharks :\(teamSharks.count)")
+    print("Total no. of players in team Dragons :\(teamDragons.count)")
+    print("Total no. of players in team Raptors :\(teamRaptors.count)")
+    }
+else{
+    print("Somethings wrong with your array buddy!!!")
+    }
     
-    i += 1
 }
-                        // creating functions to check each team details, will not be used in project , this is just to test if players have been distributed correctly
-                        /*
-                        func teamSharkDetails (){
-                        print("\nTeam Sharks are as below: \n ")
-                            var heightTotalSharks = 0.0; var counterSharks = 0
-                            for i in teamSharks
-                            {
-                                print("\(i[playerNameKey] ?? "") : \(i[playerHeightKey] ?? "") : \(i[playerExperienceKey] ?? "")")
-                                heightTotalSharks += (i[playerHeightKey]) as! Double
 
-                                if (i[playerExperienceKey] as! Bool == experiencedPlayer)
-                                {
-                                    counterSharks += 1
-                                }
-                            }
+movePlayer(playerStore: totalPlayerStore) //------------------->>>>>> Function to call
 
-                        print("Total number of Experienced Players in Team Sharks is: \(counterSharks)")
+// Creating function to add additional details to the arrays
+func addTeamDetails (sharksPlayerDetails : inout [[String: Any]], dragonsPlayerDetails : inout [[String: Any]], raptorsPlayerDetails : inout [[String: Any]]) {
+   
+    var i = 0; var j = 0; var k = 0
+   
+    while (i < sharksPlayerDetails.count)
+    {
+        sharksPlayerDetails[i][playerTeam] = "Sharks"
+        sharksPlayerDetails[i][playerGameDetail] = "March 17th at 1:00 PM"
+    i += 1
+    }
+    while (j < dragonsPlayerDetails.count)
+    {
+    dragonsPlayerDetails[j][playerTeam] = "Dragons"
+    dragonsPlayerDetails[j][playerGameDetail] = "March 17th at 3:00 PM"
+    j += 1
+    }
+    while (k < raptorsPlayerDetails.count)
+    {
+    raptorsPlayerDetails[k][playerTeam] = "Raptors"
+    raptorsPlayerDetails[k][playerGameDetail] = "March 18th at 1:00 PM"
+    k += 1
+    }
 
- 
-                        }
+}
 
-                        //teamSharkDetails() //------------------->>>>>> Function to call
-
-                        func teamDragonsDetails (){
-                        print("\nTeam Dragons are as below: \n ")
-                                var heightTotalDragons = 0.0; var counterDragons = 0
-                                for i in teamDragons
-                                {
-                                    print("\(i[playerNameKey] ?? "") : \(i[playerHeightKey] ?? "") : \(i[playerExperienceKey] ?? "")")
-                                    heightTotalDragons += (i[playerHeightKey]) as! Double
- 
-                                    if (i[playerExperienceKey] as! Bool == experiencedPlayer)
-                                    {
-                                        counterDragons += 1
-                                    }
- 
-                                }
-                        print("Total number of Experienced Players in Team Sharks is: \(counterDragons)")
+addTeamDetails(sharksPlayerDetails: &teamSharks, dragonsPlayerDetails: &teamDragons, raptorsPlayerDetails: &teamRaptors) //------------------->>>>>> Function to call
 
 
-                        }
+// creating functions to check each team details, and to print average height of each team; This will also desplay that each team has been equally distributed with experience and non-experience players
 
-                        //teamDragonsDetails() //------------------->>>>>> Function to call
+func teamDetails (teamName: [[String: Any]])
+{
+    //print("\nTeam Sharks are as below: \n ")
+    var heightTotal = 0.0; var counter = 0;
+    for i in teamName
+    {
+        //print("\(i[playerNameKey] ?? "") : \(i[playerHeightKey] ?? "") : \(i[playerExperienceKey] ?? "")")
+        heightTotal += (i[playerHeightKey]) as! Double
+        
+        if (i[playerExperienceKey] as! Bool == experiencedPlayer)
+        {
+            counter += 1
+        }
+        
+    }
+    
+    let countPlayers = Double(teamName.count)
+    let averageHeight = heightTotal/countPlayers
+    print("\nTotal number of Experienced Players in Team - \(teamName[0][playerTeam] ?? "") is: \(counter)")
+    print("Average Height of Players in Team - \(teamName[1][playerTeam] ?? "") is: \(averageHeight)")
+    
+    
+}
 
-                        func teamRaptorsDetails (){
-                        print("\nTeam Raptors are as below: \n ")
-                            var heightTotalRaptors = 0.0; var counterRaptors = 0
-                            for i in teamRaptors
-                            {
-                                print("\(i[playerNameKey] ?? "") : \(i[playerHeightKey] ?? "") : \(i[playerExperienceKey] ?? "")")
-                                heightTotalRaptors += (i[playerHeightKey]) as! Double
- 
-                                if (i[playerExperienceKey] as! Bool == experiencedPlayer)
-                                {
-                                    counterRaptors += 1
-                                }
-                            }
-                        print("Total number of Experienced Players in Team Sharks is: \(counterRaptors)")
+teamDetails(teamName: teamSharks)
+teamDetails(teamName: teamDragons)
+teamDetails(teamName: teamRaptors)
 
-                        }
-
-                        //teamRaptorsDetails() //------------------->>>>>> Function to call
-                        */
 
 var collectionTeam:String = ""
 
@@ -244,7 +276,7 @@ func printLetter(team : [[String:Any]]) {
 
             for i in team
             {
-                collectionTeam = "\n1.Name: \(i[playerNameKey] ?? "")\n2.Game Date: \(i[playerTeam] ?? "")\n3.Team: \(i[playerGameDetail] ?? "")"
+                collectionTeam = "\n1.Name: \(i[playerNameKey] ?? "")\n2.Game Date: \(i[playerGameDetail] ?? "")\n3.Team: \(i[playerTeam] ?? "")"
                
                 print("\nDear \(i[playerParentKey] ?? ""),\n\nWe are happy to inform you that \(i[playerNameKey] ?? "") has been selected for Team: \(i[playerTeam] ?? ""),\nBelow are the details for the same:\(collectionTeam)\n\nLooking forward to see you there.\n\nRegards,\nSoccer Committee Team\n-------------------------------------------------------------------------")
             }
@@ -252,7 +284,7 @@ func printLetter(team : [[String:Any]]) {
 
 }
 
-
+print("\n******************************************************** Below are the Letters for the Guardians ********************************************************")
 printLetter(team: teamSharks) //------------------->>>>>> Function to call
 printLetter(team: teamDragons) //------------------->>>>>> Function to call
 printLetter(team: teamRaptors) //------------------->>>>>> Function to call
